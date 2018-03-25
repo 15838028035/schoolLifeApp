@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<meta content="initial-scale=1.0,user-scalable=no,maximum-scale=1,width=device-width" name="viewport" />
+		<meta content="initial-scale=1.0,user-scalable=no,maximum-scale=1" media="(device-height: 568px)" name="viewport">
+		<meta content="yes" name="apple-mobile-web-app-capable" />
+		<meta content="black" name="apple-mobile-web-app-status-bar-style" />
+		<meta content="telephone=no" name="format-detection" />
+		<title>多用户</title>
+	</head>
+    <link rel="stylesheet" href="layui/css/layui.css">
+    <link rel="stylesheet" href="css/swiper.min.css">
+	<link rel="stylesheet" href="css/css.css">
+	<script>
+		(function(global){
+			function remChange(){
+				document.documentElement.style.fontSize=20*document.documentElement.clientWidth/1024+'px';
+			}
+			remChange();
+			global.addEventListener('resize',remChange,false);
+		})(window);
+</script>
+<body>
+	<div class="app_hend">
+		   资讯
+		  <a class="lanep" onclick="javascript:history.back(-1);"><img src="img/sy_icon01.png"></a>
+	</div>
+	<div class="page_content">
+		 <div class="Scenic">
+		 	 <a class="spot">
+		 	 	<h2>三亚大东海</h2>
+		 	 	
+		 	 	
+		 	 	<div class="swiper-container orderp">
+				        <div class="swiper-wrapper">
+				            <div class="swiper-slide"><img src="img/zx@2x.png" width="100%" /></div>
+				            <div class="swiper-slide"><img src="img/zx@2x.png" width="100%"/></div>
+				            <div class="swiper-slide"><img src="img/zx@2x.png" width="100%"/></div>
+				            <div class="swiper-slide"><img src="img/zx@2x.png" width="100%"/></div>
+				            <div class="swiper-slide"><img src="img/zx@2x.png" width="100%"/></div>
+				            <div class="swiper-slide"><img src="img/zx@2x.png" width="100%"/></div>
+				            <div class="swiper-slide"><img src="img/zx@2x.png" width="100%"/></div>
+				            <div class="swiper-slide"><img src="img/zx@2x.png" width="100%"/></div>
+				            <div class="swiper-slide"><img src="img/zx@2x.png" width="100%"/></div>
+				            <div class="swiper-slide"><img src="img/zx@2x.png" width="100%"/></div>
+				        </div>
+				        <!-- Add Pagination -->
+				        <div class="swiper-pagination"></div>
+				        <!-- Add Arrows -->
+				        <div class="swiper-button-next"></div>
+				        <div class="swiper-button-prev"></div>
+				   </div>
+		 	    <p>大东海位于三亚市的榆林港和鹿回头之间，是三亚最早被开发的热带滨海度假区，也是离市区最近的海湾，同时也是三亚首家零收费开放式景区，被评为国家”4A”级景区；大东海的沙滩和海水质量比亚龙湾逊色，但比三亚湾要好很多，能见度很高。</p>
+		 	    <p>大东海位于三亚市的榆林港和鹿回头之间，是三亚最早被开发的热带滨海度假区，也是离市区最近的海湾，同时也是三亚首家零收费开放式景区，被评为国家”4A”级景区；大东海的沙滩和海水质量比亚龙湾逊色，但比三亚湾要好很多。</p>
+                <p>能见度很高，可以潜水、冲浪、晒日光浴；这里消费适中，夜晚也较为热闹，在三个沙滩中是距离著名的第一市场最近的一个，可以随时乘坐公交车去那里觅食，海鲜新鲜且价格适中，可在市场直接加工也可带回民俗自行烹饪；入夜后，沙滩边有许多
+                	露天烧烤店，味道比较诱人，是不少人夜晚赏海的选择。</p>
+		 	 </a>
+		 	 
+		 	 
+		 </div>
+	</div>
+			
+	<div class="forder">
+		<ul>
+			<li><a class="ror_1" href="index.html" >首页</a></li>
+			<li><a class="ror_2 acver" href="资讯.html">资讯</a></li>
+			<li><a class="ror_3" href="指南.html">指南</a></li>
+			<li><a class="ror_4" href="我的.html">我的</a></li>
+		</ul>
+	</div>				
+</body>
+<script src="js/jquery-1.10.1.min.js"></script>
+<script src="js/js.js"></script>
+<!-- Swiper JS -->
+<script src="js/swiper.min.js"></script>
+<!-- Initialize Swiper -->
+<script>
+var swiper = new Swiper('.swiper-container', {
+nextButton: '.swiper-button-next',
+prevButton: '.swiper-button-prev',
+pagination: '.swiper-pagination',
+paginationType: 'fraction'
+});
+</script>
+
+
+</html>
