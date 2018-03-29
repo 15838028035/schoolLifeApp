@@ -17,7 +17,7 @@
         <wb-resource deploy-path="/WEB-INF/classes" source-path="/src/main/java"/>
         <wb-resource deploy-path="/WEB-INF/classes" source-path="/src/main/resources"/>
         <wb-resource deploy-path="/" source-path="/src/main/webapp"/>
-        <property name="context-root" value="/workoa"/>
         <property name="java-output-path" value="/tsapp/src/main/webapp/WEB-INF/classes"/>
+        <property name="context-root" value="/tsapp"/>
     </wb-module>
 </project-modules>

@@ -1,10 +1,10 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
-	<groupId>com.work.oa.sys</groupId>
-	<artifactId>workoa</artifactId>
+	<groupId>com.ts.app.sys</groupId>
+	<artifactId>tsapp</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<packaging>war</packaging>
-	<description>workoa</description>
+	<description>tsapp</description>
 	<url>http://maven.apache.org</url>
 	  
 	<properties>
@@ -353,7 +353,16 @@
                         </goals>  
                     </execution>  
                 </executions>  
-            </plugin>  
+            </plugin> 
+            
+            <plugin>  
+	            <groupId>org.apache.maven.plugins</groupId>  
+	            <artifactId>maven-compiler-plugin</artifactId>  
+	            <configuration>  
+	                <source>1.7</source>  
+	                <target>1.7</target>  
+	            </configuration>  
+        	</plugin>  
   
             <!-- 部署至本机   -->
             <plugin>  
@@ -363,11 +372,11 @@
                 <configuration>  
                     <container>  
                         <containerId>tomcat7</containerId>  
-                        <home>D:\apache-tomcat-7.0.52</home>  
+                        <home>D:\apache-tomcat-7.0.75</home>  
                     </container>  
                     <configuration>  
                         <type>existing</type>  
-                        <home>D:\apache-tomcat-7.0.52</home>  
+                        <home>D:\apache-tomcat-7.0.75</home>  
                     </configuration>  
                 </configuration>  
             </plugin>
