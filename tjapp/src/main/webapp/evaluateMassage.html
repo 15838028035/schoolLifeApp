@@ -22,20 +22,20 @@
 </script>
 <body>
 	<div class="app_hend">
-		   回复消息
+		   评价消息
 		  <a class="lanep" onclick="javascript:history.back(-1);"><img src="img/sy_icon01.png"></a>
 	</div>
 	<div class="page_content">
 		 <div class="Scenic" id="LAY_demo1">
 		 	 <div class="spot">
-				 <a href="资讯_详情.html" >
+				 <a href="articleDetail.html" >
 					<b><img src="img/zx@2x.png" /></b>
 					<h3>三亚大东海</h3>
 					<p>大东海位于三亚市的榆林港和鹿回头之间，是三亚最早被开发的热带滨海度假区，也是离市区最近的海湾...</p>
 					<hr />
 				 </a>
-				<img class="evaluate " src="img/ggg.png" style="width:1.5rem;height: 1.5rem;margin-left: 1rem;margin-right: 0.5rem;"><span>评价</span></img>
-				<img class="like " src="img/xi02@2xx.png" style="width:1.5rem;height: 1.5rem; margin-left: 3rem;margin-right: 0.5rem;"><span>点赞</span></img>
+				 <img class="evaluate " src="img/ggg.png" style="width:1.5rem;height: 1.5rem;margin-left: 1rem;margin-right: 0.5rem;"><span>评价</span></img>
+				 <img class="like " src="img/xi02@2xx.png" style="width:1.5rem;height: 1.5rem; margin-left: 3rem;margin-right: 0.5rem;"><span>点赞</span></img>
 			 </div>
 		 	 
 		 	 
@@ -45,9 +45,9 @@
 	<div class="forder">
 		<ul>
 			<!--<li><a class="ror_1 " href="index.html" >首页</a></li>-->
-			<li><a class="ror_2 acver" href="资讯.html">资讯</a></li>
-			<li><a class="ror_3" href="消息.html">消息</a></li>
-			<li><a class="ror_4" href="我的.html">我的</a></li>
+			<li><a class="ror_2 acver" href="article.html">资讯</a></li>
+			<li><a class="ror_3" href="message.html">消息</a></li>
+			<li><a class="ror_4" href="perCenter.html">我的</a></li>
 		</ul>
 	</div>				
 </body>
@@ -68,7 +68,7 @@ layui.use('flow', function(){
 //      $.get('/api/list?page='+page, function(res){
 //        //假设你的列表返回在data集合中
 //        layui.each(res.data, function(index, item){
-//          lis.push('<a href="资讯_详情.html" class="spot"><b><img src="img/zx@2x.png" /></b><h3>三亚大东海</h3><p>大东海位于三亚市的榆林港和鹿回头之间，是三亚最早被开发的热带滨海度假区，也是离市区最近的海湾...</p></a>');
+//          lis.push('<a href="articleDetail.html" class="spot"><b><img src="img/zx@2x.png" /></b><h3>三亚大东海</h3><p>大东海位于三亚市的榆林港和鹿回头之间，是三亚最早被开发的热带滨海度假区，也是离市区最近的海湾...</p></a>');
 //        }); 
 //        
 //        //执行下一页渲染，第二参数为：满足“加载更多”的条件，即后面仍有分页
@@ -79,7 +79,7 @@ layui.use('flow', function(){
        setTimeout(function(){
         var lis = [];
         for(var i = 0; i < 4; i++){
-          lis.push('<div class="spot"><a href="资讯_详情.html" class="spot"><b><img src="img/zx@2x.png" /></b><h3>三亚大东海</h3><p>大东海位于三亚市的榆林港和鹿回头之间，是三亚最早被开发的热带滨海度假区，也是离市区最近的海湾...</p><hr /></a><img class="evaluate " src="img/ggg.png" style="width:1.5rem;height: 1.5rem;margin-left: 1rem;margin-right: 0.5rem;"><span>评价</span></img><img class="like " src="img/xi02@2xx.png" style="width:1.5rem;height: 1.5rem; margin-left: 3rem;margin-right: 0.5rem;"><span>点赞</span></img></div>')
+          lis.push('<div class="spot"><a href="articleDetail.html" class="spot"><b><img src="img/zx@2x.png" /></b><h3>三亚大东海</h3><p>大东海位于三亚市的榆林港和鹿回头之间，是三亚最早被开发的热带滨海度假区，也是离市区最近的海湾...</p><hr /></a><img class="evaluate " src="img/ggg.png" style="width:1.5rem;height: 1.5rem;margin-left: 1rem;margin-right: 0.5rem;"><span>评价</span></img><img class="like " src="img/xi02@2xx.png" style="width:1.5rem;height: 1.5rem; margin-left: 3rem;margin-right: 0.5rem;"><span>点赞</span></img></div>')
         }
         
         //执行下一页渲染，第二参数为：满足“加载更多”的条件，即后面仍有分页
@@ -92,7 +92,7 @@ layui.use('flow', function(){
   });
 });	
 $('body').on('click','.evaluate',function(){
-	location.href = '评价列表.html';	
+	location.href = 'evaluateList.html';	
 })
 </script>
 </html>
