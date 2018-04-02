@@ -8,7 +8,7 @@ PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
 	</settings>
 	
 	<typeAliases>
-		<!-- <typeAlias alias="user" type="com.work.oa.sys.domain.User"/> -->
+		<typeAlias alias="user" type="com.ts.app.sys.domain.User"/> 
 		
 	</typeAliases>
 

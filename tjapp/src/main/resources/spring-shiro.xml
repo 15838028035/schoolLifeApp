@@ -27,7 +27,7 @@
 	</bean>
 
     <!-- Realm实现 -->
-    <bean id="customRealm" class="com.work.oa.sys.shiro.CustomRealm">
+    <bean id="customRealm" class="com.ts.app.sys.shiro.CustomRealm">
         <property name="cachingEnabled" value="true" />
         <property name="authenticationCachingEnabled" value="true" />
         <property name="authenticationCacheName" value="authenticationCache" />
@@ -126,14 +126,14 @@
         <property name="filterChainDefinitions">
             <value>
 				<!-- 对静态资源设置匿名访问 -->
-				/static/** = anon
+				<!-- /static/** = anon -->
 				<!-- 请求 logout地址，shiro去清除session -->
-				/login = anon
+				<!-- /login = anon
 				/mobileLogin = anon
 				/drawVerCode = anon
 				/logout = logout
-				/unauthorized = user 
-				/** = authc
+				/unauthorized = user  -->
+				/** = anon
             </value>
         </property>
     </bean>
@@ -142,5 +142,5 @@
     <bean id="lifecycleBeanPostProcessor" class="org.apache.shiro.spring.LifecycleBeanPostProcessor" />
     
     <!-- 自定义退出过滤器-->
-   	<bean id="customLogoutFilter" class="com.work.oa.sys.shiro.CustomLogoutFilter" />
+   	<bean id="customLogoutFilter" class="com.ts.app.sys.shiro.CustomLogoutFilter" />
 </beans>
