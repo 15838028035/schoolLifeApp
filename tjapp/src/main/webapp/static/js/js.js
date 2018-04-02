@@ -14,16 +14,7 @@ $('.problem').click(function(){
 		$(this).addClass('ancwer').siblings().removeClass('ancwer')
 	}	
 })
-/*收藏*/
-$('body').on('click','.like',function(){
-	if($(this).hasClass('j')){
-		$(this).attr('src','img/xi02@2xx.png')
-	    $(this).removeClass('j')
-	}else{
-		$(this).attr('src','img/xi01@2xx.png')
-	    $(this).addClass('j')
-	}		
-})
+
 $('.khlst').click(function(){
 	layer.open({
     title: false

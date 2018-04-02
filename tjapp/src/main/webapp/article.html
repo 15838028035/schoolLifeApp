@@ -95,5 +95,17 @@ layui.use('flow', function(){
 $('body').on('click','.evaluate',function(){
 	location.href = 'evaluateList.html';	
 })
+
+
+/*收藏*/
+$('body').on('click','.like',function(){
+	if($(this).hasClass('j')){
+		$(this).attr('src','static/img/xi02@2xx.png')
+	    $(this).removeClass('j')
+	}else{
+		$(this).attr('src','static/img/xi01@2xx.png')
+	    $(this).addClass('j')
+	}		
+})
 </script>
 </html>
