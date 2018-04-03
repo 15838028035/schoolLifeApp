@@ -213,7 +213,17 @@ $('.biem_cont').click(function(){
 	
 })
 
-     
+/*收藏*/
+$('body').on('click','.like',function(){
+	alert(111);
+	if($(this).hasClass('j')){
+		$(this).attr('src','http://localhost:8080/tsapp/static/img/xi02@2xx.png')   
+	    $(this).removeClass('j')
+	}else{
+		$(this).attr('src','http://localhost:8080/tsapp/static/img/xi01@2xx.png')
+	    $(this).addClass('j')
+	}		
+}) 
 	 
 
 
