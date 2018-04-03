@@ -1,72 +1,115 @@
 package com.ts.app.sys.domain;
 
-public class Article extends BaseEntity{
-	
-	/**
-	 * 
-	 */
-	private static final long serialVersionUID = -5482545360200806056L;
-	/**
-	 * 文章id
-	 */
-	private Integer articleId;
-	/**
-	 * 标题
-	 */
-	private String title;
-	/**
-	 * 文章内容
-	 */
-	private String articleContent;	
-	/**
-	 * 图片路径
-	 */
-	private String imgUrl;	
-	/**
-	 * 点赞数
-	 */
-	private String likeNum;
-	/**
-	 * 评价数
-	 */
-	private String evaluateNum;
-	public Integer getArticleId() {
-		return articleId;
-	}
-	public void setArticleId(Integer articleId) {
-		this.articleId = articleId;
-	}
-	public String getTitle() {
-		return title;
-	}
-	public void setTitle(String title) {
-		this.title = title;
-	}
-	public String getArticleContent() {
-		return articleContent;
-	}
-	public void setArticleContent(String articleContent) {
-		this.articleContent = articleContent;
-	}
-	public String getImgUrl() {
-		return imgUrl;
-	}
-	public void setImgUrl(String imgUrl) {
-		this.imgUrl = imgUrl;
-	}
-	public String getLikeNum() {
-		return likeNum;
-	}
-	public void setLikeNum(String likeNum) {
-		this.likeNum = likeNum;
-	}
-	public String getEvaluateNum() {
-		return evaluateNum;
-	}
-	public void setEvaluateNum(String evaluateNum) {
-		this.evaluateNum = evaluateNum;
-	}
-	
-	
+import java.util.Date;
 
+public class Article {
+    private Integer articleid;
+
+    private Integer title;
+
+    private String imgurl;
+
+    private Integer likenum;
+
+    private Integer evaluatenum;
+
+    private Integer createuserid;
+
+    private Date createdate;
+
+    private Integer updateuserid;
+
+    private Date updatedate;
+
+    private String deleteflag;
+
+    private String articlecontent;
+
+    public Integer getArticleid() {
+        return articleid;
+    }
+
+    public void setArticleid(Integer articleid) {
+        this.articleid = articleid;
+    }
+
+    public Integer getTitle() {
+        return title;
+    }
+
+    public void setTitle(Integer title) {
+        this.title = title;
+    }
+
+    public String getImgurl() {
+        return imgurl;
+    }
+
+    public void setImgurl(String imgurl) {
+        this.imgurl = imgurl == null ? null : imgurl.trim();
+    }
+
+    public Integer getLikenum() {
+        return likenum;
+    }
+
+    public void setLikenum(Integer likenum) {
+        this.likenum = likenum;
+    }
+
+    public Integer getEvaluatenum() {
+        return evaluatenum;
+    }
+
+    public void setEvaluatenum(Integer evaluatenum) {
+        this.evaluatenum = evaluatenum;
+    }
+
+    public Integer getCreateuserid() {
+        return createuserid;
+    }
+
+    public void setCreateuserid(Integer createuserid) {
+        this.createuserid = createuserid;
+    }
+
+    public Date getCreatedate() {
+        return createdate;
+    }
+
+    public void setCreatedate(Date createdate) {
+        this.createdate = createdate;
+    }
+
+    public Integer getUpdateuserid() {
+        return updateuserid;
+    }
+
+    public void setUpdateuserid(Integer updateuserid) {
+        this.updateuserid = updateuserid;
+    }
+
+    public Date getUpdatedate() {
+        return updatedate;
+    }
+
+    public void setUpdatedate(Date updatedate) {
+        this.updatedate = updatedate;
+    }
+
+    public String getDeleteflag() {
+        return deleteflag;
+    }
+
+    public void setDeleteflag(String deleteflag) {
+        this.deleteflag = deleteflag == null ? null : deleteflag.trim();
+    }
+
+    public String getArticlecontent() {
+        return articlecontent;
+    }
+
+    public void setArticlecontent(String articlecontent) {
+        this.articlecontent = articlecontent == null ? null : articlecontent.trim();
+    }
 }
