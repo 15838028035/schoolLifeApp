@@ -48,44 +48,7 @@ $('.web_soso_tite li').click(function(){
 	$(this).addClass('liacor').siblings().removeClass('liacor')	
 })
 
-/*搜索价格星级*/
-$('.Mask').click(function(){
-	$('.Mask').hide()
-	$('.web_Price').hide()
-	$('.web_Star').hide()
-})
-$('.mindor_4').click(function(){
-	$('.Mask').hide()
-	$('.web_Price').hide()
-	$('.web_Star').hide()
-	$('.mindor_3').css('background-image','url(img/sx@2x.png)')
-})
-$('.mindor_1').click(function(){
-	$('.Mask').show()
-	$('.web_Price').show()
-	$('.web_Star').hide()
-	$('.mindor_3').css('background-image','url(img/sx@2x.png)')
-})
-$('.mindor_2').click(function(){
-	$('.Mask').show()
-	$('.web_Star').show()
-	$('.web_Price').hide()
-	$('.mindor_3').css('background-image','url(img/sx@2x.png)')
-})
-$('.dont').click(function(){
-	$('.Mask').hide()
-	$('.web_Price').hide()
-	$('.web_Star').hide()	
-})
-/*搜索条件筛选*/
-$('.screen_right1 li').click(function(){
-	if($(this).hasClass('navert')){
-		$(this).removeClass('navert')
-	}else{
-		$(this).addClass('navert')
-	}
-	
-})
+
 $('.mindor_3').click(function(){
 	$(this).css('background-image','url(img/sx_xz.png)')
 	$('.Mask1').show()
@@ -101,12 +64,7 @@ $('.aist').click(function(){
 })
 
 
-/*客房详情选项卡*/
 
-$('.attribute li').click(function(){
-	$(this).addClass('acvter').siblings().removeClass('acvter')	
-	$('.attr_cont>.cenoct:eq(' + $(this).index() + ')').show().siblings().hide();
-})
 
 $('.hist').click(function(){
 	layer.open({
@@ -215,12 +173,11 @@ $('.biem_cont').click(function(){
 
 /*收藏*/
 $('body').on('click','.like',function(){
-	alert(111);
 	if($(this).hasClass('j')){
-		$(this).attr('src','http://localhost:8080/tsapp/static/img/xi02@2xx.png')   
+		$(this).attr('src','static/img/xi02@2xx.png')   
 	    $(this).removeClass('j')
 	}else{
-		$(this).attr('src','http://localhost:8080/tsapp/static/img/xi01@2xx.png')
+		$(this).attr('src','static/img/xi01@2xx.png')
 	    $(this).addClass('j')
 	}		
 }) 
