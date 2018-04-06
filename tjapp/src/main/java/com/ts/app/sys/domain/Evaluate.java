@@ -1,51 +1,95 @@
 package com.ts.app.sys.domain;
 
-public class Evaluate extends BaseEntity {
+import java.util.Date;
 
-	/**
-	 * 
-	 */
-	private static final long serialVersionUID = -8591340552178696944L;
-	
-	/**
-	 * 评价id
-	 */
-	private Integer evaluateId;
-	/**
-	 * 文章id
-	 */
-	private Integer articleId;
-	/**
-	 * 评价内容
-	 */
-	private String evaluateContent;	
-	/**
-	 * 是否已读
-	 */
-	private String isReaded;
-	public Integer getEvaluateId() {
-		return evaluateId;
-	}
-	public void setEvaluateId(Integer evaluateId) {
-		this.evaluateId = evaluateId;
-	}
-	public Integer getArticleId() {
-		return articleId;
-	}
-	public void setArticleId(Integer articleId) {
-		this.articleId = articleId;
-	}
-	public String getEvaluateContent() {
-		return evaluateContent;
-	}
-	public void setEvaluateContent(String evaluateContent) {
-		this.evaluateContent = evaluateContent;
-	}
-	public String getIsReaded() {
-		return isReaded;
-	}
-	public void setIsReaded(String isReaded) {
-		this.isReaded = isReaded;
-	}	
-	
+public class Evaluate {
+    private Integer evaluateid;
+
+    private Integer articleid;
+
+    private String evaluatecontent;
+
+    private String isreaded;
+
+    private Integer createuserid;
+
+    private Date createdate;
+
+    private Integer updateuserid;
+
+    private Date updatedate;
+
+    private String deleteflag;
+
+    public Integer getEvaluateid() {
+        return evaluateid;
+    }
+
+    public void setEvaluateid(Integer evaluateid) {
+        this.evaluateid = evaluateid;
+    }
+
+    public Integer getArticleid() {
+        return articleid;
+    }
+
+    public void setArticleid(Integer articleid) {
+        this.articleid = articleid;
+    }
+
+    public String getEvaluatecontent() {
+        return evaluatecontent;
+    }
+
+    public void setEvaluatecontent(String evaluatecontent) {
+        this.evaluatecontent = evaluatecontent == null ? null : evaluatecontent.trim();
+    }
+
+    public String getIsreaded() {
+        return isreaded;
+    }
+
+    public void setIsreaded(String isreaded) {
+        this.isreaded = isreaded == null ? null : isreaded.trim();
+    }
+
+    public Integer getCreateuserid() {
+        return createuserid;
+    }
+
+    public void setCreateuserid(Integer createuserid) {
+        this.createuserid = createuserid;
+    }
+
+    public Date getCreatedate() {
+        return createdate;
+    }
+
+    public void setCreatedate(Date createdate) {
+        this.createdate = createdate;
+    }
+
+    public Integer getUpdateuserid() {
+        return updateuserid;
+    }
+
+    public void setUpdateuserid(Integer updateuserid) {
+        this.updateuserid = updateuserid;
+    }
+
+    public Date getUpdatedate() {
+        return updatedate;
+    }
+
+    public void setUpdatedate(Date updatedate) {
+        this.updatedate = updatedate;
+    }
+
+    public String getDeleteflag() {
+        return deleteflag;
+    }
+
+    public void setDeleteflag(String deleteflag) {
+        this.deleteflag = deleteflag == null ? null : deleteflag.trim();
+    }
 }

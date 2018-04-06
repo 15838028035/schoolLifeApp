@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="com.ts.app.sys.mapping.ArticleMapper" >
+<mapper namespace="com.ts.app.sys.dao.ArticleMapper" >
   <resultMap id="BaseResultMap" type="com.ts.app.sys.domain.Article" >
     <id column="articleId" property="articleid" jdbcType="INTEGER" />
     <result column="title" property="title" jdbcType="INTEGER" />

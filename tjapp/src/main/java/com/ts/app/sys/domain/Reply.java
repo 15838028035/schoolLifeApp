@@ -1,53 +1,95 @@
 package com.ts.app.sys.domain;
 
-public class Reply extends BaseEntity{
+import java.util.Date;
 
-	/**
-	 * 
-	 */
-	private static final long serialVersionUID = 7069853283990547332L;
-	
-	/**
-	 * 回复id
-	 */
-	private Integer replyId;
-	/**
-	 * 评价id
-	 */
-	private Integer articleId;
-	/**
-	 * 回复内容
-	 */
-	private String repayContent;	
-	/**
-	 * 是否已读
-	 */
-	private String isReaded;
-	public Integer getReplyId() {
-		return replyId;
-	}
-	public void setReplyId(Integer replyId) {
-		this.replyId = replyId;
-	}
-	public Integer getArticleId() {
-		return articleId;
-	}
-	public void setArticleId(Integer articleId) {
-		this.articleId = articleId;
-	}
-	public String getRepayContent() {
-		return repayContent;
-	}
-	public void setRepayContent(String repayContent) {
-		this.repayContent = repayContent;
-	}
-	public String getIsReaded() {
-		return isReaded;
-	}
-	public void setIsReaded(String isReaded) {
-		this.isReaded = isReaded;
-	}
-	
-	
+public class Reply {
+    private Integer replyid;
 
+    private Integer evaluateid;
+
+    private String repaycontent;
+
+    private String isreaded;
+
+    private Integer createuserid;
+
+    private Date createdate;
+
+    private Integer updateuserid;
+
+    private Date updatedate;
+
+    private String deleteflag;
+
+    public Integer getReplyid() {
+        return replyid;
+    }
+
+    public void setReplyid(Integer replyid) {
+        this.replyid = replyid;
+    }
+
+    public Integer getEvaluateid() {
+        return evaluateid;
+    }
+
+    public void setEvaluateid(Integer evaluateid) {
+        this.evaluateid = evaluateid;
+    }
+
+    public String getRepaycontent() {
+        return repaycontent;
+    }
+
+    public void setRepaycontent(String repaycontent) {
+        this.repaycontent = repaycontent == null ? null : repaycontent.trim();
+    }
+
+    public String getIsreaded() {
+        return isreaded;
+    }
+
+    public void setIsreaded(String isreaded) {
+        this.isreaded = isreaded == null ? null : isreaded.trim();
+    }
+
+    public Integer getCreateuserid() {
+        return createuserid;
+    }
+
+    public void setCreateuserid(Integer createuserid) {
+        this.createuserid = createuserid;
+    }
+
+    public Date getCreatedate() {
+        return createdate;
+    }
+
+    public void setCreatedate(Date createdate) {
+        this.createdate = createdate;
+    }
+
+    public Integer getUpdateuserid() {
+        return updateuserid;
+    }
+
+    public void setUpdateuserid(Integer updateuserid) {
+        this.updateuserid = updateuserid;
+    }
+
+    public Date getUpdatedate() {
+        return updatedate;
+    }
+
+    public void setUpdatedate(Date updatedate) {
+        this.updatedate = updatedate;
+    }
+
+    public String getDeleteflag() {
+        return deleteflag;
+    }
+
+    public void setDeleteflag(String deleteflag) {
+        this.deleteflag = deleteflag == null ? null : deleteflag.trim();
+    }
 }
