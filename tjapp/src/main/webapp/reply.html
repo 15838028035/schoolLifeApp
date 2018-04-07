@@ -40,12 +40,12 @@
 		   		 	内容 ：
 		   		 </div>
 		   		 <div class="webluate_right1">
-		   		 	<textarea></textarea>
+		   		 	<textarea id="repaycontent"></textarea>
 		   		 </div>
 		   	</div>
 		</div>
 		<div class="onbut">
-			<input type="button" value="确认" class="onbut_inp spoert" msg-tite="您是否确认？"/>
+			<input type="button" value="确认" class="onbut_inp spoert" msg-tite="您是否确认？" onclick="doSubmit()"/>
 		</div>
 	</div>
    
@@ -83,6 +83,26 @@ var upload = tinyImgUpload('#upload', options);
 document.getElementsByClassName('submit')[0].onclick = function (e) {
     upload();
 }
+
+function doSubmit() {
+	var evaluateid = "${param.evaluateid}";
+    var repaycontent = $("#repaycontent").val();
+    var imgurl = $("#imgurl").val();
+    var postData = {"evaluateid",evaluateid,"repaycontent":repaycontent};
+    
+    $.ajax({
+                 url: ctxApp+"/replyController/doInsert",
+                 dataType: 'json',
+                 data:postData,
+                 method: 'POST',
+                 async: false,//使用同步的方式,true为异步方式
+                 success: function(data) {
+                     alert(data.msg);
+                }
+        });
+    
+}
+
 </script>
 
 </html>
