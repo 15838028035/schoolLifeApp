@@ -71,13 +71,14 @@ layui.use('flow', function(){
      $.get(ctxApp+'/articleController/listTuijian?page='+page, function(data){
         //假设你的列表返回在data集合中
         layui.each(data, function(index, item){
+        	 var articleid = item.articleid;
             var title = item.title;
             var imgurl = item.imgurl;
             var likenum = item.likenum;
             var evaluatenum = item.evaluatenum;
             var articlecontent  = item.articlecontent;
             
-            var putMsg = '<a href="articleDetail.html" class="spot"><b><img src='+imgurl+' /></b><h3>'+title+'</h3><p>'+articlecontent+'</p><hr /></a>';
+            var putMsg = '<a href="articleDetail.html?articleid="'+articleid+' class="spot"><b><img src='+imgurl+' /></b><h3>'+title+'</h3><p>'+articlecontent+'</p><hr /></a>';
           lis.push(putMsg);
         }); 
         
