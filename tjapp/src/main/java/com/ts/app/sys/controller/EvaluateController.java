@@ -26,7 +26,7 @@ public class EvaluateController extends BaseController {
 	public List<Evaluate> list(Integer articleid){
 		Map<String,Object> filterMap = new HashMap<String,Object>();
 		filterMap.put("articleid", articleid);
-		 List<Evaluate>  articleList= 	evaluateService.queryListByArticeId(articleid);
+		 List<Evaluate>  articleList= 	evaluateService.queryListByArticeId(filterMap);
 		return articleList;
 	}
 }

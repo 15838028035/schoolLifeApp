@@ -1,6 +1,7 @@
 package com.ts.app.sys.service.impl;
 
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -48,8 +49,8 @@ public class EvaluateServiceImpl implements EvaluateService {
 	}
 
 	@Override
-	public List<Evaluate> queryListByArticeId(Integer articleid) {
-		return evaluateMapper.queryListByArticeId(articleid);
+	public List<Evaluate> queryListByArticeId(Map<String, Object> filterMap) {
+		return evaluateMapper.queryListByArticeId(filterMap);
 	}
 	
 }
