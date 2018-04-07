@@ -39,6 +39,19 @@ public class ArticleCotroller extends BaseController{
 		return articleList;
 	}
 	
+	/**
+	 * 我的帖子
+	 */
+	@RequestMapping("/articleController/listMy")
+	@ResponseBody
+	public List<Article> listMy(){
+			Map<String,String> filterMap = new HashMap<String,String>();
+				Integer createuserid = getLoginUid();
+				filterMap.put("dynamicWhere", " where createUserId="+createuserid);
+			 List<Article>  articleList= 	articleMapper.queryListArticle(filterMap);
+		return articleList;
+	}
+	
 	@RequestMapping("/articleController/doInsert")
 	@ResponseBody
 	public Map<String,String> doInster(Article article){
