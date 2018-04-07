@@ -1,5 +1,5 @@
 var ctx = window.location.protocol +"//"+ window.location.host;
-var ctxApp = window.location.protocol +"//"+ window.location.host+"app";
+var ctxApp = window.location.protocol +"//"+ window.location.host+"/tsapp";
 
 // JavaScript Document
 $(function(){

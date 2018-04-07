@@ -10,4 +10,9 @@ public class BaseController {
 		//FIXME:获得登录id
 		return 0;
 	}
+	
+	public boolean isAdminLogin(){
+		//FIXME:判断是否是管理人员
+		return true;
+	}
 }
