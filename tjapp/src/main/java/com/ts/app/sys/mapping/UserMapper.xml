@@ -19,7 +19,7 @@
 		
 	<select id="findUserList" resultType="user">
 		select 
-		<include refid="Link_Column_List" /> 
+		<include refid="Base_Column_List" /> 
 		from user u
 		where u.deleteFlag = '0' 
 		<if test="userid != null ">  
