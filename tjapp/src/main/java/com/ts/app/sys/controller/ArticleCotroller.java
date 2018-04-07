@@ -10,8 +10,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import com.ts.app.sys.dao.ArticleMapper;
 import com.ts.app.sys.domain.Article;
+import com.ts.app.sys.service.ArticleService;
 
 /**
  * 
@@ -20,9 +20,8 @@ import com.ts.app.sys.domain.Article;
  */
 @Controller
 public class ArticleCotroller extends BaseController{
-	
 	@Autowired
-	private ArticleMapper articleMapper;
+    private ArticleService articleService;  
 
 	/**
 	 * 校内 管理员发布,userType=0
@@ -34,7 +33,7 @@ public class ArticleCotroller extends BaseController{
 	public List<Article> list(){
 			Map<String,Object> filterMap = new HashMap<String,Object>();
 			filterMap.put("userType", "0");
-			List<Article>  articleList= 	articleMapper.queryListArticle(filterMap);
+			List<Article>  articleList= 	articleService.queryListArticle(filterMap);
 		return articleList;
 	}
 	
@@ -47,7 +46,7 @@ public class ArticleCotroller extends BaseController{
 	public List<Article> listTuijian(){
 		Map<String,Object> filterMap = new HashMap<String,Object>();
 		filterMap.put("userType", "1");
-		List<Article>  articleList= 	articleMapper.queryListArticle(filterMap);
+		List<Article>  articleList= 	articleService.queryListArticle(filterMap);
 		return articleList;
 	}
 	
@@ -59,7 +58,7 @@ public class ArticleCotroller extends BaseController{
 	public List<Article> listMy(){
 		Map<String,Object> filterMap = new HashMap<String,Object>();
 		filterMap.put("userType", "1");
-		List<Article>  articleList= 	articleMapper.queryListArticle(filterMap);
+		List<Article>  articleList= 	articleService.queryListArticle(filterMap);
 		return articleList;
 	}
 	
@@ -74,7 +73,7 @@ public class ArticleCotroller extends BaseController{
 		Integer createuserid = getLoginUid();
 		article.setCreateuserid(createuserid);
 		article.setCreatedate(new Date());
-		articleMapper.insert(article);
+		articleService.insert(article);
 		}catch(Exception e){
 			retMap.put("msg", "发布失败");
 			retMap.put("flag", "0");
@@ -89,7 +88,7 @@ public class ArticleCotroller extends BaseController{
 		Article article = new Article();
 		try{
 			
-			article = articleMapper.selectByPrimaryKey(articleid);
+			article = articleService.selectByPrimaryKey(articleid);
 		}catch(Exception e){
 			
 		}

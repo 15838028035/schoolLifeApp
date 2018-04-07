@@ -9,8 +9,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import com.ts.app.sys.dao.ReplyMapper;
 import com.ts.app.sys.domain.Reply;
+import com.ts.app.sys.service.ReplyService;
 
 /**
  * 回复controller
@@ -19,7 +19,7 @@ import com.ts.app.sys.domain.Reply;
 public class ReplyController extends BaseController {
 
 	@Autowired
-	private ReplyMapper replyMapper;
+	private ReplyService replyService;
 
 	@RequestMapping("/replyController/doInsert")
 	@ResponseBody
@@ -32,7 +32,7 @@ public class ReplyController extends BaseController {
 			Integer createuserid = getLoginUid();
 			reply.setCreateuserid(createuserid);
 			reply.setCreatedate(new Date());
-			replyMapper.insert(reply);
+			replyService.insert(reply);
 		}catch(Exception e){
 			retMap.put("msg", "失败");
 			retMap.put("flag", "0");
