@@ -35,7 +35,7 @@
 		   		 	标题 ：
 		   		 </div>
 		   		 <div class="webluate_right">
-		   		 	xxxxxxxx
+		   		 	<input type="text" name="title" id="title"/>
 		   		 </div>
 		   	</div>
 		   	<div class="webluate_cont">
@@ -43,7 +43,7 @@
 		   		 	内容 ：
 		   		 </div>
 		   		 <div class="webluate_right1">
-		   		 	<textarea></textarea>
+		   		 	<textarea id="articlecontent" name="articlecontent"></textarea>
 		   		 </div>
 		   	</div>
 		   	<div class="webluate_cont">
@@ -54,19 +54,13 @@
 		   		 	
 			 	    <div id="upload" class="niopent">
 		   		   </div>
+		   		   <input type="hidden" id="imgurl" name="imgurl"/>
 		   	</div>
-		   	
-		   	
-		   	
-		   	
-		   	
-		   	
-		   	
 		   	
 		   	
 		</div>
 		<div class="onbut">
-			<input type="button" value="确认" class="onbut_inp spoert" msg-tite="您是否确认？"/>
+			<input type="button" value="确认" class="onbut_inp spoert" msg-tite="您是否确认？" onclick="doSubmit()"/>
 		</div>
 	</div>
    
@@ -75,16 +69,13 @@
 <script src="static/js/jquery-1.10.1.min.js"></script>
 <script src="static/layer/layer.js"></script>
 <script type="text/javascript" src="static/js/jquery.raty.min.js"></script>
-<script src="static/static/js/js.js"></script>
+<script src="static/js/js.js"></script>
 <script type="text/javascript">
       $.fn.raty.defaults.path = 'img';
       $('#default-demo').raty();
       var aa = $('.webluate_right').width()
 	  $('#default-demo').width(aa)
   </script>
-	
-	
-	
 	
 <script src="static/js/tinyImgUpload.js"></script>
 <script>
@@ -103,6 +94,25 @@ var options = {
 var upload = tinyImgUpload('#upload', options);
 document.getElementsByClassName('submit')[0].onclick = function (e) {
     upload();
+}
+
+function doSubmit() {
+	var title = $("#title").val();
+	var articlecontent = $("#articlecontent").val();
+	var imgurl = $("#imgurl").val();
+	var postData = {"title":title,"articlecontent":articlecontent,"imgurl":imgurl};
+	
+	$.ajax({
+                 url: ctxApp+"/articleController/doInsert",
+                 dataType: 'json',
+                 data:postData,
+                 method: 'POST',
+                 async: false,//使用同步的方式,true为异步方式
+                 success: function(data) {
+                	 alert(data.msg);
+                }
+	    });
+	
 }
 </script>
 

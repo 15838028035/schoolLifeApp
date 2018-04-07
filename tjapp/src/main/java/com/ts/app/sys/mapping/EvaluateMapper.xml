@@ -139,4 +139,12 @@
       deleteFlag = #{deleteflag,jdbcType=CHAR}
     where evaluateId = #{evaluateid,jdbcType=INTEGER}
   </update>
+  
+   <select id="queryListByArticeId" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from evaluate
+    where articleid = #{articleid,jdbcType=INTEGER}
+  </select>
+  
 </mapper>
