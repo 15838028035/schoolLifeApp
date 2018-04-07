@@ -1,3 +1,6 @@
+var ctx = window.location.protocol +"//"+ window.location.host;
+var ctxApp = window.location.protocol +"//"+ window.location.host+"app";
+
 // JavaScript Document
 $(function(){
 $('.forder li a').click(function(){	
