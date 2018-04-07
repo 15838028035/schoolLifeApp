@@ -188,7 +188,10 @@
     ,
     <include refid="Blob_Column_List" />
     from article
-    ${dynamicWhere}
+    
+    where exists
+    
+    (select 1 from user where  userType=#{userType,jdbcType=INTEGER})
   </select>
   
 </mapper>

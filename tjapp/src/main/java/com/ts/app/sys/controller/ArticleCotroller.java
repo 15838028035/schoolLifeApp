@@ -25,40 +25,29 @@ public class ArticleCotroller extends BaseController{
 	private ArticleMapper articleMapper;
 
 	/**
-	 * 校内
+	 * 校内 管理员发布,userType=0
+	 * userType=1 推荐
 	 * @return
 	 */
 	@RequestMapping("/articleController/list")
 	@ResponseBody
 	public List<Article> list(){
-			Map<String,String> filterMap = new HashMap<String,String>();
-			if(!isAdminLogin()){
-				Integer createuserid = getLoginUid();
-				filterMap.put("dynamicWhere", " where createUserId="+createuserid);
-			}else {
-				filterMap.put("dynamicWhere", " ");
-			}
-			
-			 List<Article>  articleList= 	articleMapper.queryListArticle(filterMap);
+			Map<String,Object> filterMap = new HashMap<String,Object>();
+			filterMap.put("userType", "0");
+			List<Article>  articleList= 	articleMapper.queryListArticle(filterMap);
 		return articleList;
 	}
 	
 	/**
-	 * 推荐
+	 * 推荐,userTyp=1
 	 * @return
 	 */
 	@RequestMapping("/articleController/listTuijian")
 	@ResponseBody
 	public List<Article> listTuijian(){
-			Map<String,String> filterMap = new HashMap<String,String>();
-			if(!isAdminLogin()){
-				Integer createuserid = getLoginUid();
-				filterMap.put("dynamicWhere", " where createUserId="+createuserid);
-			}else {
-				filterMap.put("dynamicWhere", " ");
-			}
-			
-			 List<Article>  articleList= 	articleMapper.queryListArticle(filterMap);
+		Map<String,Object> filterMap = new HashMap<String,Object>();
+		filterMap.put("userType", "1");
+		List<Article>  articleList= 	articleMapper.queryListArticle(filterMap);
 		return articleList;
 	}
 	
@@ -68,10 +57,9 @@ public class ArticleCotroller extends BaseController{
 	@RequestMapping("/articleController/listMy")
 	@ResponseBody
 	public List<Article> listMy(){
-			Map<String,String> filterMap = new HashMap<String,String>();
-				Integer createuserid = getLoginUid();
-				filterMap.put("dynamicWhere", " where createUserId="+createuserid);
-			 List<Article>  articleList= 	articleMapper.queryListArticle(filterMap);
+		Map<String,Object> filterMap = new HashMap<String,Object>();
+		filterMap.put("userType", "1");
+		List<Article>  articleList= 	articleMapper.queryListArticle(filterMap);
 		return articleList;
 	}
 	

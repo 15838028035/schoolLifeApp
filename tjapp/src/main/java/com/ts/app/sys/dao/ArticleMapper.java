@@ -20,5 +20,5 @@ public interface ArticleMapper {
 
     int updateByPrimaryKey(Article record);
     
-    public List<Article> queryListArticle(Map<String,String> filterMap);
+    public List<Article> queryListArticle(Map<String,Object> filterMap);
 }
