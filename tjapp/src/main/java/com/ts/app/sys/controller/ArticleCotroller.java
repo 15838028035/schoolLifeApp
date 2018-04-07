@@ -24,9 +24,32 @@ public class ArticleCotroller extends BaseController{
 	@Autowired
 	private ArticleMapper articleMapper;
 
+	/**
+	 * 校内
+	 * @return
+	 */
 	@RequestMapping("/articleController/list")
 	@ResponseBody
 	public List<Article> list(){
+			Map<String,String> filterMap = new HashMap<String,String>();
+			if(!isAdminLogin()){
+				Integer createuserid = getLoginUid();
+				filterMap.put("dynamicWhere", " where createUserId="+createuserid);
+			}else {
+				filterMap.put("dynamicWhere", " ");
+			}
+			
+			 List<Article>  articleList= 	articleMapper.queryListArticle(filterMap);
+		return articleList;
+	}
+	
+	/**
+	 * 推荐
+	 * @return
+	 */
+	@RequestMapping("/articleController/listTuijian")
+	@ResponseBody
+	public List<Article> listTuijian(){
 			Map<String,String> filterMap = new HashMap<String,String>();
 			if(!isAdminLogin()){
 				Integer createuserid = getLoginUid();
