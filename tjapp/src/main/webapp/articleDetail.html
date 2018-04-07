@@ -29,21 +29,11 @@
 	<div class="page_content">
 		 <div class="Scenic">
 		 	 <a class="spot">
-		 	 	<h2>三亚大东海</h2>
-		 	 	
-		 	 	
+		 	 	<h2 id="title"></h2>
 		 	 	<div class="swiper-container orderp">
 				        <div class="swiper-wrapper">
-				            <div class="swiper-slide"><img src="img/zx@2x.png" width="100%" /></div>
-				            <div class="swiper-slide"><img src="img/zx@2x.png" width="100%"/></div>
-				            <div class="swiper-slide"><img src="img/zx@2x.png" width="100%"/></div>
-				            <div class="swiper-slide"><img src="img/zx@2x.png" width="100%"/></div>
-				            <div class="swiper-slide"><img src="img/zx@2x.png" width="100%"/></div>
-				            <div class="swiper-slide"><img src="img/zx@2x.png" width="100%"/></div>
-				            <div class="swiper-slide"><img src="img/zx@2x.png" width="100%"/></div>
-				            <div class="swiper-slide"><img src="img/zx@2x.png" width="100%"/></div>
-				            <div class="swiper-slide"><img src="img/zx@2x.png" width="100%"/></div>
-				            <div class="swiper-slide"><img src="img/zx@2x.png" width="100%"/></div>
+<!-- 				            <div class="swiper-slide"><img src="img/zx@2x.png" width="100%" /></div> -->
+				            <div class="swiper-slide"><img src="img/zx@2x.png" width="100%" id="imgurl"/></div>
 				        </div>
 				        <!-- Add Pagination -->
 				        <div class="swiper-pagination"></div>
@@ -51,10 +41,7 @@
 				        <div class="swiper-button-next"></div>
 				        <div class="swiper-button-prev"></div>
 				   </div>
-		 	    <p>大东海位于三亚市的榆林港和鹿回头之间，是三亚最早被开发的热带滨海度假区，也是离市区最近的海湾，同时也是三亚首家零收费开放式景区，被评为国家”4A”级景区；大东海的沙滩和海水质量比亚龙湾逊色，但比三亚湾要好很多，能见度很高。</p>
-		 	    <p>大东海位于三亚市的榆林港和鹿回头之间，是三亚最早被开发的热带滨海度假区，也是离市区最近的海湾，同时也是三亚首家零收费开放式景区，被评为国家”4A”级景区；大东海的沙滩和海水质量比亚龙湾逊色，但比三亚湾要好很多。</p>
-                <p>能见度很高，可以潜水、冲浪、晒日光浴；这里消费适中，夜晚也较为热闹，在三个沙滩中是距离著名的第一市场最近的一个，可以随时乘坐公交车去那里觅食，海鲜新鲜且价格适中，可在市场直接加工也可带回民俗自行烹饪；入夜后，沙滩边有许多
-                	露天烧烤店，味道比较诱人，是不少人夜晚赏海的选择。</p>
+				   <div id="articlecontent"></div>
 		 	 </a>
 		 	 
 		 	 
@@ -73,7 +60,7 @@
 <script src="js/jquery-1.10.1.min.js"></script>
 <script src="js/js.js"></script>
 <!-- Swiper JS -->
-<script src="js/swiper.min.js"></script>
+<script src="static/js/swiper.min.js"></script>
 <!-- Initialize Swiper -->
 <script>
 var swiper = new Swiper('.swiper-container', {
@@ -82,6 +69,30 @@ prevButton: '.swiper-button-prev',
 pagination: '.swiper-pagination',
 paginationType: 'fraction'
 });
+
+
+$(document).ready(function(){
+	doGetInfo();
+	});
+	
+function doGetInfo() {
+    var articleid = "${param.articleid}";
+    
+    $.ajax({
+                 url: ctxApp+"/articleController/get?articleid="+articleid,
+                 dataType: 'json',
+                 data:postData,
+                 method: 'POST',
+                 async: false,//使用同步的方式,true为异步方式
+                 success: function(data) {
+                	 $("#title").val(data.title);
+                	 $("#articlecontent").val(data.articlecontent);
+                	 $("#imgurl").attr("src",data.imgurl);
+                }
+        });
+    
+}
+
 </script>
 
 

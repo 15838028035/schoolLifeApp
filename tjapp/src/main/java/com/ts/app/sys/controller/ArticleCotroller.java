@@ -58,4 +58,18 @@ public class ArticleCotroller extends BaseController{
 		
 		return retMap;
 	}
+	
+	@RequestMapping("/articleController/get")
+	@ResponseBody
+	public Article get(Integer articleid){
+		Article article = new Article();
+		try{
+			
+			article = articleMapper.selectByPrimaryKey(articleid);
+		}catch(Exception e){
+			
+		}
+		
+		return article;
+	}
 }
