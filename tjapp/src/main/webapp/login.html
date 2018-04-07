@@ -19,8 +19,31 @@
 			remChange();
 			global.addEventListener('resize',remChange,false);
 		})(window);
-</script>
-<body style="background-image: url(static/img/dl_bj.png); background-attachment: fixed; background-repeat: no-repeat;  background-size: cover;">
+	</script>
+	<script src="static/js/jquery-1.10.1.min.js"></script>
+	<script src="static/js/js.js"></script>
+	<script src="static/js/regular.js"></script>
+	<body style="background-image: url(static/img/dl_bj.png); background-attachment: fixed; background-repeat: no-repeat;  background-size: cover;">
+	<style>
+	.verification_code {
+	    box-sizing: border-box;
+	    height: 3rem;
+	    line-height: 50px;
+	    letter-spacing: 8px;
+	    text-align: center;
+	    font-size: 28px;
+	    width: 3.5rem;
+	    border-radius: 5px;
+	    border: 1px solid #ddd;
+	    margin-left: 5px;
+	    color: #B3B3B3;
+	    cursor: pointer;
+	    display:inline-block;
+	    float: right !important;
+	}
+
+	
+	</style>
 
 	<div class="login_hend"> 
 		       用户登录
@@ -37,7 +60,7 @@
 			 	 	 <img src="static/img/dl02.png">
 			 	 </div>
 			 	 <div class="login_onict_right">
-			 	 	 <input type="text" placeholder="请输入手机号" class="login_inp_1" />
+			 	 	 <input type="text" placeholder="请输入手机号或用户名" class="login_inp_1" id="userName" />
 			 	 </div>
 			 </div>
 			 <div class="login_onict">
@@ -45,7 +68,7 @@
 			 	 	 <img src="static/img/dl02_97.png">
 			 	 </div>
 			 	 <div class="login_onict_right">
-			 	 	 <input type="text" placeholder="密码" class="login_inp_1" />
+			 	 	 <input type="text" placeholder="密码" class="login_inp_1" id="password"/>
 			 	 	 
 			 	 </div>
 			 </div>
@@ -54,8 +77,12 @@
 			 	 	 <img src="static/img/dl03.png">
 			 	 </div>
 			 	 <div class="login_onict_right1">
-			 	 	 <input type="text" placeholder="验证码" class="login_inp_2" />
-			 	 	 <input type="button" value="S J K O" class="login_inp_3" />
+			 	 	 <input type="text" placeholder="验证码" class="login_inp_2" id="imgCode"/>
+			 	 	 <div class="verification_code right">
+						<img  class="web_sink_but"  id="refreshImgCode" style="cursor:pointer;min-width:0;" src="localhost:8080/tsapp/drawVerCode"/>
+					</div>
+			 	 	 <!-- <img  class="login_inp_3" src="localhost:8080/tsapp/drawVerCode" id="refreshImgCode"/>
+			 	 	 <input type="button" value="S J K O" class="login_inp_3" src="localhost:8080/tsapp/drawVerCode" id="refreshImgCode"/> -->
 			 	 </div>
 			 </div>
 		</div>
@@ -63,11 +90,70 @@
 			<a href="忘记密码.html">忘记密码？</a>
 		</div>-->
 		<div class="login_buttom">
-			<a href="article.html"><input type="button" value="登录" class="login_buttom_1" /></a>
+			<a href="#"><input type="button" value="登录" class="login_buttom_1" id="login"/></a>
 			<a href="register.html"><input type="button" value="注册" class="login_buttom_2" /></a>
 		</div>
 	</div>
-</div>	
+</div>
+<script type="text/javascript">
+$(function(){
+	//刷新图片 
+	$("#refreshImgCode").on('click',function(){ 
+		alert(111);
+		var imgSrc = $("#refreshImgCode");
+		alert(222);
+		var src = imgSrc.attr("src");
+		alert(333);
+		var timestamp = (new Date()).valueOf();
+		alert(444);
+		src = src + "?timestamp=" + timestamp;
+		alert(src);
+		imgSrc.attr("src", src);
+	});
+	
+    $("#login").click(function(){
+    //验证
+    var userName=$.trim($("#userName").val());
+	var password=$.trim($("#password").val());
+	var imgCode=$.trim($("#imgCode").val());
+	alert(userName);
+	alert(password);
+	alert(imgCode);
+	if (!isEmpty(userName,"用户名")) return;
+	if (!isEmpty(password,"密码")) return;
+	if (!isEmpty(imgCode,"验证码")) return;	
+       //登录
+       $.ajax({
+           url: '${ctx}/loginSubmit',
+           data: {
+           	'userName' : userName ,
+           	'password' : password,
+           	'imgCode': imgCode
+           },
+           type: "POST",
+           dataType: "json",
+           success: function(data){
+           	  layer.closeAll('loading');
+                 if(data.success){
+                	location.href = ctxApp+'/article.html';
+ 					
+                 }else{
+         	    	layer.msg(data.msg);
+                 }
+             },
+             error: function(data){
+                 try {
+       	    		layer.msg("请求异常");
+                 	return false;
+                 }catch (e) {
+                 	console.log(e);
+                 }
+             }
+       	});
+ 	});
+});
+	
+</script>  	
 		
 		
 		

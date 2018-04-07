@@ -134,6 +134,10 @@
 				/logout = logout
 				/unauthorized = user  -->
 				/** = anon
+				<!-- 验证码 -->
+				/drawVerCode = anon
+				<!-- 登录验证-->
+				/loginSubmit = anon 
             </value>
         </property>
     </bean>
