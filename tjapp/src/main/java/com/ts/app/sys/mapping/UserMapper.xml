@@ -9,7 +9,6 @@
 		sex,
 		phone,
 		email,
-		userType,
 		createUserId,
 		createDate,
 		updateUserId,
@@ -22,11 +21,78 @@
 		<include refid="Base_Column_List" /> 
 		from user u
 		where u.deleteFlag = '0' 
-		<if test="userid != null ">  
-	       	and u.userid = #{userid} 
+		<if test="userId != null ">  
+	       	and u.userId = #{userId} 
 	   	</if>
-	    <if test="username != null and username !='' ">  
-	       	and u.username = #{username} 
+	    <if test="userName != null and userName !='' ">  
+	       	and u.userName = #{userName} 
 	   	</if>
 	</select>
+	
+	<!-- 插入用户返回主键userId -->
+	<insert id="insertUser" parameterType="user" useGeneratedKeys="true" keyProperty="userId" >
+	  insert into user
+	  <trim prefix="(" suffix=")" suffixOverrides="," >
+	    <if test="userName != null" >
+	      userName,
+	    </if>
+	    <if test="password != null" >
+	      password,
+	    </if>
+	    <if test="salt != null" >
+	      salt,
+	    </if>
+	    <if test="sex != null" >
+	      sex,
+	    </if>
+	    <if test="phone != null" >
+	      phone,
+	    </if>
+	    <if test="email != null" >
+	      email,
+	    </if>
+	    <if test="headUrl != null" >
+	      headUrl,
+	    </if>
+	    <if test="createUserId != null" >
+	      createUserId,
+	    </if>
+	    <if test="updateUserId != null" >
+	      updateUserId,
+	    </if>	    
+	      createDate,
+	      updateDate
+	  </trim>
+	  <trim prefix="values (" suffix=")" suffixOverrides="," >
+	    <if test="userName != null" >
+	      #{userName},
+	    </if>
+	    <if test="password != null" >
+	      #{password},
+	    </if>
+	    <if test="salt != null" >
+	      #{salt},
+	    </if>
+	    <if test="sex != null" >
+	      #{sex},
+	    </if>
+	    <if test="phone != null" >
+	      #{phone},
+	    </if>
+	    <if test="email != null" >
+	      #{email},
+	    </if>	    
+	    <if test="headUrl != null" >
+	      #{headUrl},
+	    </if>
+	    <if test="createUserId != null" >
+	      #{createUserId},
+	    </if>	    	    		    
+	    <if test="updateUserId != null" >
+	      #{updateUserId},
+	    </if>
+	      	now(),
+	      	now()
+	  </trim>
+	</insert>
 </mapper>
