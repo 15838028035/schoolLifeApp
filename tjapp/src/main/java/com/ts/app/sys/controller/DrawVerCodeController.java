@@ -18,22 +18,22 @@ import com.ts.app.sys.utils.SCaptcha;
 public class DrawVerCodeController {
 	
 	/**
-     * @description Éú³ÉÍ¼Æ¬ÑéÖ¤Âë
+     * @description ï¿½ï¿½ï¿½ï¿½Í¼Æ¬ï¿½ï¿½Ö¤ï¿½ï¿½
      */
     @RequestMapping(value = "/drawVerCode")
     @ResponseBody
     public void drawVerCode(HttpServletRequest request, HttpServletResponse response, HttpSession session) throws IOException {
-        // ÉèÖÃÏìÓ¦µÄÀàĞÍ¸ñÊ½ÎªÍ¼Æ¬¸ñÊ½
+        // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ó¦ï¿½ï¿½ï¿½ï¿½ï¿½Í¸ï¿½Ê½ÎªÍ¼Æ¬ï¿½ï¿½Ê½
         response.setContentType("image/jpeg");
-        // ½ûÖ¹Í¼Ïñ»º´æ¡£
+        // ï¿½ï¿½Ö¹Í¼ï¿½ñ»º´æ¡£
         response.setHeader("Pragma", "no-cache");
         response.setHeader("Cache-Control", "no-cache");
         response.setDateHeader("Expires", 0);
-        //ÊµÀıÉú³ÉÑéÖ¤Âë¶ÔÏó
+        //Êµï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ö¤ï¿½ï¿½ï¿½ï¿½ï¿½
         SCaptcha instance = new SCaptcha();
-        //½«ÑéÖ¤Âë´æÈësession
+        //ï¿½ï¿½ï¿½ï¿½Ö¤ï¿½ï¿½ï¿½ï¿½ï¿½session
         session.setAttribute(Constants.IMG_CODE, instance.getCode());
-        //ÏòÒ³ÃæÊä³öÑéÖ¤ÂëÍ¼Æ¬
+        //ï¿½ï¿½Ò³ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ö¤ï¿½ï¿½Í¼Æ¬
         instance.write(response.getOutputStream());
     }
     
@@ -48,3 +48,4 @@ public class DrawVerCodeController {
         }  
     } 
 }
+

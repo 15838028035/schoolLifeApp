@@ -29,54 +29,73 @@
 	</div>
 	<div class="page_content">
 		<div class="oastic">
-			 <div class="oastic_cont">
-			 	 <div class="oastic_lo_left">
-			 	 	  姓名 ：
-			 	 </div>
-			 	 <div class="oastic_lo_right">
-			 	 	  <input type="text" placeholder="请输入用户姓名" class="oastic_inp_1" />
-			 	 </div>
-			 </div>
-			 <div class="oastic_cont">
-			 	 <div class="oastic_lo_left">
-			 	 	  手机 ：
-			 	 </div>
-			 	 <div class="oastic_lo_right">
-			 	 	  <input type="text" placeholder="请输入手机号码" class="oastic_inp_1" />
-			 	 </div>
-			 </div>
-			 <div class="oastic_cont">
-			 	 <div class="oastic_lo_left">
-			 	 	  性别 ：
-			 	 </div>
-			 	 <div class="oastic_lo_right">
-			 	 	<div class="lonip">
-			 	 		<input type="radio" id="radio"  name="radio" />
-			 	 	    <label for="radio"> 男</label>
-			 	 	</div>
-			 	 	<div class="lonip">
-			 	 		<input type="radio" id="radio1"  name="radio" />
-			 	 	    <label for="radio1"> 女</label>
-			 	 	</div>
-			 	 </div>
-			 </div>
-			 <div class="oastic_cont">
-			 	 <div class="oastic_lo_left">
-			 	 	  邮箱 ：
-			 	 </div>
-			 	 <div class="oastic_lo_right">
-			 	 	  <input type="text" placeholder="请输入电子邮箱" class="oastic_inp_1" />
-			 	 </div>
-			 </div>
-			 <div class="zonc">
-			 	<input type="checkbox" id="chenk" class="zonc_1" />
-			 	<label for="chenk" class="zonc_2" >我接受</label>
-			 	<a class="zonc_3 Coupon" >《注册协议》</a>
-			 </div>
-			 <div class="login_buttom">
-				<a href="setMessage.html"><input value="注册" class="login_buttom_1" type="button"></a>
-			</div>
+			 <form  id="addUserForm" method="post">
+				 <div class="oastic_cont">
+				 	 <div class="oastic_lo_left">
+				 	 	  姓名 ：
+				 	 </div>
+				 	 <div class="oastic_lo_right">
+				 	 	  <input name="userName" id="userName" type="text" placeholder="请输入用户姓名" class="oastic_inp_1" />
+				 	 </div>
+				 </div>
+				 <div class="oastic_cont">
+				 	 <div class="oastic_lo_left">
+				 	 	  手机 ：
+				 	 </div>
+				 	 <div class="oastic_lo_right">
+				 	 	  <input  name="phone" id="phone" type="text" placeholder="请输入手机号码" class="oastic_inp_1" />
+				 	 </div>
+				 </div>
+				 <div class="oastic_cont">
+				 	 <div class="oastic_lo_left">
+				 	 	  性别 ：
+				 	 </div>
+				 	 <div class="oastic_lo_right">
+				 	 	<div class="lonip">
+				 	 		<input type="radio" id="man"  name="sex"  value="0" />
+				 	 	    <label for="man"> 男</label>
+				 	 	</div>
+				 	 	<div class="lonip">
+				 	 		<input type="radio" id="women"  name="sex"  value="1"  />
+				 	 	    <label for="women"> 女</label>
+				 	 	</div>
+				 	 </div>
+				 </div>
+				 <div class="oastic_cont">
+				 	 <div class="oastic_lo_left">
+				 	 	  邮箱 ：
+				 	 </div>
+				 	 <div class="oastic_lo_right">
+				 	 	  <input name="email" id="email" type="text" placeholder="请输入电子邮箱" class="oastic_inp_1" />
+				 	 </div>
+				 </div>
+				 <div class="oastic_cont">
+				 	 <div class="oastic_lo_left">
+				 	 	  登陆密码 ：
+				 	 </div>
+				 	 <div class="oastic_lo_right">
+				 	 	  <input name="password" id="password" type="text" placeholder="请输入登陆密码" class="oastic_inp_1" />
+				 	 </div>
+				 </div>
+				 <div class="oastic_cont">
+				 	 <div class="oastic_lo_left">
+				 	 	  确认密码 ：
+				 	 </div>
+				 	 <div class="oastic_lo_right">
+				 	 	  <input name="rePassword" id="rePassword" type="text" placeholder="请确认密码" class="oastic_inp_1" />
+				 	 </div>
+				 </div>
+				 <div class="zonc">
+				 	<input type="checkbox" id="chenk" class="zonc_1" name="agree" />
+				 	<label for="chenk" class="zonc_2" >我接受</label>
+				 	<a class="zonc_3 Coupon" >《注册协议》</a>
+				 </div>
+				 <div class="login_buttom">
+					<a href="#"><input value="注册" class="login_buttom_1" type="button" id="save"></a>
+				</div>
+			</form>
 		</div>
+		
 		
 	</div>
     <script type="text/html" id="oimyt">
@@ -103,4 +122,61 @@
 <script src="static/js/jquery-1.10.1.min.js"></script>
 <script src="static/layer/layer.js"></script>
 <script src="static/js/js.js"></script>
+<script src="static/js/regular.js"></script>
+<script type="text/javascript">
+/* 添加用户 */
+$("#save").click(function(){
+	var userName = $.trim($("#userName").val());
+	var len = $("input:radio[name='sex']:checked").length;
+	var phone = $.trim($("#phone").val());
+	var email = $("#email").val();
+	var password = $("#password").val();
+	var rePassword = $("#rePassword").val();
+	
+   	var isChecked = $("input:checkbox[name='agree']").is(":checked");
+   	
+   	if(!isEmpty(userName,'姓名')) return;
+   	if(len==0){
+   		layer.msg("性别不能为空");
+   		return;
+   	}
+   	if(!checkPhone(phone,'手机号')) return;
+   	if(!checkEmail(email,'邮箱')) return;
+   	
+   	if(!isEmpty(password,'密码')) return;
+   	if(!isEmpty(rePassword,'确认密码')) return;
+   	if (password != rePassword ){
+   		layer.msg("密码不一致");
+   		return;
+   	}
+   	if(!isChecked){
+   		layer.msg("请阅读并同意注册协议说明");
+   		return;
+   	}
+   	
+   	alert("111");
+	var formData = new FormData($("#addUserForm" )[0]);
+    $.ajax({  
+          url: ctxApp+'/userReg', 
+          type: 'POST',  
+          data: formData,  
+          async: false,  
+          cache: false,  
+          contentType: false,  
+          processData: false, 
+          dataType : "json",
+          success: function (data) {  
+        	  if(data.success){
+        		  layer.msg(data.msg);
+        		  setTimeout(function(){
+        			  location.href = 'article.html'; 
+				  }, 500);
+				  
+			  }else{
+				  layer.msg(data.msg);							
+			  }
+          }
+     }); 
+});
+</script>
 </html>

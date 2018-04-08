@@ -147,4 +147,5 @@
     
     <!-- 自定义退出过滤器-->
    	<bean id="customLogoutFilter" class="com.ts.app.sys.shiro.CustomLogoutFilter" />
+
 </beans>

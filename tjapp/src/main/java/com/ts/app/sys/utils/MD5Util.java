@@ -2,6 +2,8 @@ package com.ts.app.sys.utils;
 
 import java.security.MessageDigest;
 
+import org.apache.shiro.crypto.hash.SimpleHash;
+
 public class MD5Util {
     private static String byteArrayToHexString(byte b[]) {
         StringBuffer resultSb = new StringBuffer();
@@ -44,5 +46,19 @@ public class MD5Util {
 	public static void main(String[] args) {
 		System.out.println(MD5Util.MD5Encode("123456", "utf-8"));
 	}
+	
+	/**
+	 * @Description: 对密码进行md5加密
+	 * @version: v1.0.0
+	 * @author: liuhuan
+	 * @date: 2017-11-30 下午5:41:06
+	 */
+	public static String saltMd5(String pw ,String salt) {
+		String hashAlgorithmName = ReadConfig.getProperty("hashAlgorithmName");//加密方式  
+		String hashIterations = ReadConfig.getProperty("hashIterations"); //加密次数
+		Object simpleHash = new SimpleHash(hashAlgorithmName, pw,  
+               salt, Integer.parseInt(hashIterations));
+		return simpleHash.toString();  
+   }
 
 }
