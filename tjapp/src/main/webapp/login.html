@@ -23,18 +23,16 @@
 	<script src="static/js/jquery-1.10.1.min.js"></script>
 	<script src="static/js/js.js"></script>
 	<script src="static/js/regular.js"></script>
+	<script src="static/js/regular.js"></script>
 	<body style="background-image: url(static/img/dl_bj.png); background-attachment: fixed; background-repeat: no-repeat;  background-size: cover;">
 	<style>
 	.verification_code {
 	    box-sizing: border-box;
-	    height: 3rem;
-	    line-height: 50px;
-	    letter-spacing: 8px;
+	    height: 4rem;
 	    text-align: center;
 	    font-size: 28px;
-	    width: 3.5rem;
+	    width: 9.5rem;
 	    border-radius: 5px;
-	    border: 1px solid #ddd;
 	    margin-left: 5px;
 	    color: #B3B3B3;
 	    cursor: pointer;
@@ -78,10 +76,10 @@
 			 	 </div>
 			 	 <div class="login_onict_right1">
 			 	 	 <input type="text" placeholder="验证码" class="login_inp_2" id="imgCode"/>
-			 	 	 <!-- <div class="verification_code right">
-						<img  class="web_sink_but"  id="refreshImgCode" style="cursor:pointer;min-width:0;" src="localhost:8080/tsapp/drawVerCode"/>
-					</div> -->
-			 	 	 <input type="button" value="SJKO" class="login_inp_3" src="localhost:8080/tsapp/drawVerCode" id="refreshImgCode"/>
+			 	 	 <div class="verification_code right">
+						<img  class="web_sink_but"  id="refreshImgCode" style="cursor:pointer;min-width:0;width:100%;" src="http://localhost:8080/tsapp/drawVerCode"/>
+					</div>
+			 	 	 <!-- <input type="button" value="S J K O" class="login_inp_3" src="localhost:8080/tsapp/drawVerCode" id="refreshImgCode"/> -->
 			 	 </div>
 			 </div>
 		</div>
@@ -98,15 +96,10 @@
 $(function(){
 	//刷新图片 
 	$("#refreshImgCode").on('click',function(){ 
-		alert(111);
 		var imgSrc = $("#refreshImgCode");
-		alert(222);
 		var src = imgSrc.attr("src");
-		alert(333);
 		var timestamp = (new Date()).valueOf();
-		alert(444);
 		src = src + "?timestamp=" + timestamp;
-		alert(src);
 		imgSrc.attr("src", src);
 	});
 	
@@ -123,7 +116,7 @@ $(function(){
 	if (!isEmpty(imgCode,"验证码")) return;	
        //登录
        $.ajax({
-           url: '${ctx}/loginSubmit',
+           url: ctxApp+'/login',
            data: {
            	'userName' : userName ,
            	'password' : password,
