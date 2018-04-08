@@ -1,5 +1,8 @@
 package com.ts.app.sys.dao;
 
+import java.util.List;
+import java.util.Map;
+
 import com.ts.app.sys.domain.Article;
 
 public interface ArticleMapper {
@@ -16,4 +19,6 @@ public interface ArticleMapper {
     int updateByPrimaryKeyWithBLOBs(Article record);
 
     int updateByPrimaryKey(Article record);
+    
+	public List<Article> queryListArticle(Map<String, Object> filterMap) ;
 }
