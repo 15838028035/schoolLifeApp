@@ -1,9 +1,13 @@
-package com.ts.app.sys.dao;
+package com.ts.app.sys.service;
+
+import java.util.List;
+import java.util.Map;
 
 import com.ts.app.sys.domain.Article;
 
-public interface ArticleMapper {
-    int deleteByPrimaryKey(Integer articleid);
+public interface ArticleService {
+
+	int deleteByPrimaryKey(Integer articleid);
 
     int insert(Article record);
 
@@ -16,4 +20,6 @@ public interface ArticleMapper {
     int updateByPrimaryKeyWithBLOBs(Article record);
 
     int updateByPrimaryKey(Article record);
+    
+    public List<Article> queryListArticle(Map<String,Object> filterMap);
 }
