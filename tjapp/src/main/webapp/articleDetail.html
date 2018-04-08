@@ -8,19 +8,22 @@
 		<meta content="black" name="apple-mobile-web-app-status-bar-style" />
 		<meta content="telephone=no" name="format-detection" />
 		<title>多用户</title>
-	</head>
-    <link rel="stylesheet" href="layui/css/layui.css">
-    <link rel="stylesheet" href="css/swiper.min.css">
-	<link rel="stylesheet" href="css/css.css">
-	<script>
-		(function(global){
-			function remChange(){
-				document.documentElement.style.fontSize=20*document.documentElement.clientWidth/1024+'px';
-			}
-			remChange();
-			global.addEventListener('resize',remChange,false);
-		})(window);
+		
+		<link rel="stylesheet" href="static/layui/css/layui.css">
+    <link rel="stylesheet" href="static/css/swiper.min.css">
+    <link rel="stylesheet" href="static/css/css.css">
+    <script>
+        (function(global){
+            function remChange(){
+                document.documentElement.style.fontSize=20*document.documentElement.clientWidth/1024+'px';
+            }
+            remChange();
+            global.addEventListener('resize',remChange,false);
+        })(window);
 </script>
+
+	</head>
+    
 <body>
 	<div class="app_hend">
 		   资讯
@@ -43,7 +46,6 @@
 				   </div>
 				   <div id="articlecontent"></div>
 		 	 </a>
-		 	 
 		 	 
 		 </div>
 	</div>
@@ -76,7 +78,7 @@ $(document).ready(function(){
 	});
 	
 function doGetInfo() {
-    var articleid = "${param.articleid}";
+    var articleid = getQueryString("articleid");
     
     $.ajax({
                  url: ctxApp+"/articleController/get?articleid="+articleid,

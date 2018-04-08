@@ -1,9 +1,17 @@
-package com.ts.app.sys.dao;
+package com.ts.app.sys.service;
+
+import java.util.List;
+import java.util.Map;
 
 import com.ts.app.sys.domain.Evaluate;
 
-public interface EvaluateMapper {
-    int deleteByPrimaryKey(Integer evaluateid);
+/**
+ * 
+ * 评价
+ */
+public interface EvaluateService {
+
+ 	int deleteByPrimaryKey(Integer evaluateid);
 
     int insert(Evaluate record);
 
@@ -14,4 +22,6 @@ public interface EvaluateMapper {
     int updateByPrimaryKeySelective(Evaluate record);
 
     int updateByPrimaryKey(Evaluate record);
+    
+    public List<Evaluate> queryListByArticeId(Map<String, Object> filterMap) ;
 }

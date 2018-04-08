@@ -62,9 +62,6 @@
 	  $('#default-demo').width(aa)
   </script>
 	
-	
-	
-	
 <script src="static/js/tinyImgUpload.js"></script>
 <script>
 
@@ -79,17 +76,10 @@ var options = {
     }
 }
 
-var upload = tinyImgUpload('#upload', options);
-document.getElementsByClassName('submit')[0].onclick = function (e) {
-    upload();
-}
-
 function doSubmit() {
-	var evaluateid = "${param.evaluateid}";
+	var evaluateid =getQueryString("evaluateid");
     var repaycontent = $("#repaycontent").val();
-    var imgurl = $("#imgurl").val();
-    var postData = {"evaluateid",evaluateid,"repaycontent":repaycontent};
-    
+    var postData = {"evaluateid":evaluateid,"repaycontent":repaycontent};
     $.ajax({
                  url: ctxApp+"/replyController/doInsert",
                  dataType: 'json',

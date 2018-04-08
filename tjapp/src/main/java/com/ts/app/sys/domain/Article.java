@@ -5,7 +5,7 @@ import java.util.Date;
 public class Article {
     private Integer articleid;
 
-    private Integer title;
+    private String title;
 
     private String imgurl;
 
@@ -33,12 +33,12 @@ public class Article {
         this.articleid = articleid;
     }
 
-    public Integer getTitle() {
+    public String getTitle() {
         return title;
     }
 
-    public void setTitle(Integer title) {
-        this.title = title;
+    public void setTitle(String title) {
+        this.title = title == null ? null : title.trim();
     }
 
     public String getImgurl() {
