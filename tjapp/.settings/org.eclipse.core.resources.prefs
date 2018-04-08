@@ -1,5 +1,9 @@
 eclipse.preferences.version=1
 encoding//src/main/java/com/ts/app/sys/constants=UTF-8
+encoding//src/main/java/com/ts/app/sys/controller/ArticleCotroller.java=UTF-8
+encoding//src/main/java/com/ts/app/sys/controller/EvaluateController.java=UTF-8
+encoding//src/main/java/com/ts/app/sys/controller/ReplyController.java=UTF-8
+encoding//src/main/java/com/ts/app/sys/controller/UserController.java=UTF-8
 encoding//src/main/java/com/ts/app/sys/dao=UTF-8
 encoding//src/main/java/com/ts/app/sys/domain=UTF-8
 encoding//src/main/java/com/ts/app/sys/exception=UTF-8
