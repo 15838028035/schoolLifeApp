@@ -1,5 +1,8 @@
 package com.ts.app.sys.dao;
 
+import java.util.List;
+import java.util.Map;
+
 import com.ts.app.sys.domain.Evaluate;
 
 public interface EvaluateMapper {
@@ -14,4 +17,6 @@ public interface EvaluateMapper {
     int updateByPrimaryKeySelective(Evaluate record);
 
     int updateByPrimaryKey(Evaluate record);
+    
+    public List<Evaluate> queryListByArticeId(Map<String, Object> filterMap) ;
 }
