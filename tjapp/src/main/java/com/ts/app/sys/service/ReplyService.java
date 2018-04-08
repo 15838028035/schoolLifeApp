@@ -1,5 +1,7 @@
 package com.ts.app.sys.service;
 
+import java.util.List;
+
 import com.ts.app.sys.domain.Reply;
 
 /**
@@ -19,4 +21,6 @@ public interface ReplyService {
     int updateByPrimaryKeySelective(Reply record);
 
     int updateByPrimaryKey(Reply record);
+    
+    List<Reply> selectByEvaluateid(Integer evaluateid);
 }

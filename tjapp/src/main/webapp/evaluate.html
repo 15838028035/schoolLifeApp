@@ -29,26 +29,17 @@
 	</div>
 	<div class="page_content" >
 	    <div class="message_add">
-	    	
-		   	<div class="webluate">
-		   		 <div class="webluate_left">
-		   		 	标题 ：
-		   		 </div>
-		   		 <div class="webluate_right">
-		   		 	123456789123
-		   		 </div>
-		   	</div>
 		   	<div class="webluate_cont">
 		   		 <div class="webluate_left1">
 		   		 	内容 ：
 		   		 </div>
 		   		 <div class="webluate_right1">
-		   		 	<textarea></textarea>
+		   		 	<textarea id="evaluatecontent" name="evaluatecontent"></textarea>
 		   		 </div>
 		   	</div>
 		</div>
 		<div class="onbut">
-			<input type="button" value="确认" class="onbut_inp spoert" msg-tite="您是否确认？"/>
+			<input type="button" value="确认" class="onbut_inp spoert" msg-tite="您是否确认？" onclick="doSubmit()"/>
 		</div>
 	</div>
    
@@ -82,9 +73,21 @@ var options = {
     }
 }
 
-var upload = tinyImgUpload('#upload', options);
-document.getElementsByClassName('submit')[0].onclick = function (e) {
-    upload();
+function doSubmit() {
+    var articleid =getQueryString("articleid");
+    var evaluatecontent = $("#evaluatecontent").val();
+    var postData = {"articleid":articleid,"evaluatecontent":evaluatecontent};
+    $.ajax({
+                 url: ctxApp+"/evaluateController/doInsert",
+                 dataType: 'json',
+                 data:postData,
+                 method: 'POST',
+                 async: false,//使用同步的方式,true为异步方式
+                 success: function(data) {
+                     layer.alert(data.msg);
+                }
+        });
+    
 }
 </script>
 

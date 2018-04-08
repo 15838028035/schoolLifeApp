@@ -1,14 +1,15 @@
 package com.ts.app.sys.controller;
 
+import com.ts.app.sys.utils.CacheUtils;
+
 /**
  * 
   * 基础Controller
  */
 public class BaseController {
 
-	public int getLoginUid(){
-		//FIXME:获得登录id
-		return 0;
+	public Integer getLoginUid(){
+		return CacheUtils.getUser().getUserId();
 	}
 	
 	public boolean isAdminLogin(){

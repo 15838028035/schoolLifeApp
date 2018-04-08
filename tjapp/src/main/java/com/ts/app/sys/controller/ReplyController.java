@@ -2,6 +2,7 @@ package com.ts.app.sys.controller;
 
 import java.util.Date;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -29,6 +30,17 @@ public class ReplyController extends BaseController {
 		retMap.put("flag", "1");
 		
 		try{
+			
+			Integer evaluateid = reply.getEvaluateid();
+			
+			List<Reply> replyList =  replyService.selectByEvaluateid( evaluateid);
+			
+			if(replyList!=null && replyList.size()>0){
+				retMap.put("msg", "回复失败,一条评价只运行回复一次");
+				retMap.put("flag", "0");
+				return retMap;
+			}
+			
 			Integer createuserid = getLoginUid();
 			reply.setCreateuserid(createuserid);
 			reply.setCreatedate(new Date());

@@ -1,5 +1,6 @@
 package com.ts.app.sys.controller;
 
+import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -28,5 +29,25 @@ public class EvaluateController extends BaseController {
 		filterMap.put("articleid", articleid);
 		 List<Evaluate>  articleList= 	evaluateService.queryListByArticeId(filterMap);
 		return articleList;
+	}
+	
+	@RequestMapping("/evaluateController/doInsert")
+	@ResponseBody
+	public Map<String,String> doInster(Evaluate Evaluate){
+		Map<String,String> retMap = new HashMap<String,String>();
+		retMap.put("msg", "成功");
+		retMap.put("flag", "1");
+		
+		try{
+			Integer createuserid = getLoginUid();
+			Evaluate.setCreateuserid(createuserid);
+			Evaluate.setCreatedate(new Date());
+			evaluateService.insert(Evaluate);
+		}catch(Exception e){
+			retMap.put("msg", "失败");
+			retMap.put("flag", "0");
+		}
+		
+		return retMap;
 	}
 }

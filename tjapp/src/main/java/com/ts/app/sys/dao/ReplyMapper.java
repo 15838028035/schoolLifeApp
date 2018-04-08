@@ -1,5 +1,7 @@
 package com.ts.app.sys.dao;
 
+import java.util.List;
+
 import com.ts.app.sys.domain.Reply;
 
 public interface ReplyMapper {
@@ -14,4 +16,6 @@ public interface ReplyMapper {
     int updateByPrimaryKeySelective(Reply record);
 
     int updateByPrimaryKey(Reply record);
+    
+    List<Reply> selectByEvaluateid(Integer evaluateid);
 }

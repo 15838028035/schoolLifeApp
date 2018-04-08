@@ -1,5 +1,7 @@
 package com.ts.app.sys.service.impl;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -40,6 +42,11 @@ public class ReplyServiceImpl  implements ReplyService{
 	@Override
 	public int updateByPrimaryKey(Reply record) {
 		return replyMapper.updateByPrimaryKey(record);
+	}
+	
+	@Override
+	public List<Reply> selectByEvaluateid(Integer evaluateid){
+		return replyMapper.selectByEvaluateid(evaluateid);
 	}
 
 }
