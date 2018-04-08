@@ -56,4 +56,9 @@ public class ArticleServiceImpl implements ArticleService{
 		return articleMapper.queryListArticle(filterMap);
 	}
 	
+	@Override
+	public List<Article> queryListArticle2(Map<String,Object> filterMap){
+		return articleMapper.queryListArticle2(filterMap);
+	}
+	
 }

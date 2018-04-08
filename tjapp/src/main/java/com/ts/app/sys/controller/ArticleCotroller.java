@@ -10,7 +10,6 @@ import java.util.Map;
 import javax.servlet.http.HttpServletRequest;
 
 import org.apache.log4j.Logger;
-import org.apache.shiro.authz.annotation.RequiresUser;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -20,7 +19,9 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 
 import com.ts.app.sys.domain.Article;
+import com.ts.app.sys.domain.Mycollection;
 import com.ts.app.sys.service.ArticleService;
+import com.ts.app.sys.service.MycollectionService;
 
 /**
  * 
@@ -34,6 +35,9 @@ public class ArticleCotroller extends BaseController{
 	
 	@Autowired
     private ArticleService articleService;  
+	
+	@Autowired
+	private MycollectionService mycollectionService;
 
 	/**
 	 * 校内 管理员发布,userType=0
@@ -169,5 +173,61 @@ public class ArticleCotroller extends BaseController{
 				
 			}
 
+	}
+	
+	/**
+	 * 点赞
+	 * @param article
+	 * @return
+	 */
+	@RequestMapping("/articleController/doLikenum")
+	@ResponseBody
+	public Article doLikenum(Integer articleid){
+		
+		try{
+			
+			Integer createUserId = getLoginUid();
+			
+			Map<String,Object> filterMap = new HashMap<String,Object>();
+			filterMap.put("articleid", articleid);
+			filterMap.put("createUserId", createUserId);
+			
+			List<Mycollection> MycollectionList = mycollectionService.selectByArticeIdAndCreateUid(filterMap);
+			
+			if(MycollectionList==null || MycollectionList.size()==0){
+				Mycollection Mycollection = new Mycollection();
+				Mycollection.setArticleid(articleid);
+				Mycollection.setCreatedate(new Date());
+				Mycollection.setCreateuserid(createUserId);
+				
+				mycollectionService.insert(Mycollection);
+				
+				Article article = articleService.selectByPrimaryKey(articleid);
+				article.setLikenum(1);
+				articleService.updateByPrimaryKeySelective(article);
+				
+				return article;
+				
+			}else{
+			
+				Mycollection Mycollection = new Mycollection();
+				Mycollection.setArticleid(articleid);
+				Mycollection.setCreateuserid(createUserId);
+				Mycollection.setDeleteflag("1");//取消状态
+				
+				mycollectionService.update2(Mycollection);
+				
+				Article article = articleService.selectByPrimaryKey(articleid);
+				article.setLikenum(article.getLikenum()-1);
+				articleService.updateByPrimaryKeySelective(article);
+				
+				return article;
+				
+			}
+		
+		}catch(Exception e){
+		}
+		
+		return new Article();
 	}
 }
